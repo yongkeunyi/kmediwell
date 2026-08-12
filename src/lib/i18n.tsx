@@ -118,6 +118,26 @@ const dict = {
 
     "app.noSiteSelected": "선택된 시설이 없습니다.",
     "app.goExplore": "탐색으로 이동",
+
+    "news.sellerBannerTitle": "치유관광 기자단이 되어보세요",
+    "news.sellerBannerDesc": "국내 체류 유학생이라면, 자국어로 기사를 쓰고 글로벌 셀러로 활동할 수 있어요.",
+    "news.sellerBannerCta": "지원하기 →",
+
+    "seller.eyebrow": "글로벌 셀러 · 치유관광 기자단 파일럿",
+    "seller.title": "치유관광 기자단에 지원하세요",
+    "seller.lead": "국내 체류 유학생 50명을 모집합니다. 자국어로 기사를 쓰고, 글로벌 셀러로 활동해보세요.",
+    "seller.back": "← 치유관광타임즈로",
+    "seller.countryLabel": "국가",
+    "seller.priorityBadge": "우선 모집",
+    "seller.localeLabel": "선호 언어",
+    "seller.messageLabel": "하고 싶은 말 (선택)",
+    "seller.messagePlaceholder": "간단한 소개나 지원 동기를 적어주세요.",
+    "seller.submitCta": "지원하기",
+    "seller.signInPrompt": "로그인 후 지원할 수 있어요.",
+    "seller.statusPending": "심사 중이에요. 곧 연락드릴게요.",
+    "seller.statusApproved": "승인됐어요! 곧 연락드릴게요.",
+    "seller.statusRejected": "이번 라운드에는 함께하지 못했어요.",
+    "seller.appliedOn": "지원일",
   },
   en: {
     "nav.home": "Home",
@@ -232,6 +252,26 @@ const dict = {
 
     "app.noSiteSelected": "No site selected.",
     "app.goExplore": "Go to Explore",
+
+    "news.sellerBannerTitle": "Become a HealingTour Fellow",
+    "news.sellerBannerDesc": "Korea-resident international students can write in their own language and become a global seller.",
+    "news.sellerBannerCta": "Apply →",
+
+    "seller.eyebrow": "Global Seller · HealingTour Fellow Pilot",
+    "seller.title": "Apply to Become a HealingTour Fellow",
+    "seller.lead": "We're recruiting 50 Korea-resident international students. Write articles in your own language and become a global seller.",
+    "seller.back": "← Back to HealingTour Times",
+    "seller.countryLabel": "Country",
+    "seller.priorityBadge": "Priority",
+    "seller.localeLabel": "Preferred language",
+    "seller.messageLabel": "Message (optional)",
+    "seller.messagePlaceholder": "Tell us a bit about yourself or why you'd like to join.",
+    "seller.submitCta": "Apply",
+    "seller.signInPrompt": "Sign in to apply.",
+    "seller.statusPending": "Under review — we'll be in touch soon.",
+    "seller.statusApproved": "Approved! We'll be in touch soon.",
+    "seller.statusRejected": "Not selected for this round.",
+    "seller.appliedOn": "Applied on",
   },
 } as const;
 

@@ -340,6 +340,19 @@ hr.rule {
   justify-content: space-between;
   gap: 10px;
 }
+.seller-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  margin-top: 14px;
+}
+.seller-banner:hover {
+  border-color: var(--border-strong);
+}
 .stack {
   display: flex;
   flex-direction: column;

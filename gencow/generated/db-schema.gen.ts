@@ -15,6 +15,7 @@ const schema = {
   "ebookSubscriptions": m1.ebookSubscriptions,
   "ebooks": m1.ebooks,
   "healingRecords": m1.healingRecords,
+  "sellerApplications": m1.sellerApplications,
   "session": m0.session,
   "sites": m1.sites,
   "user": m0.user,

@@ -14,6 +14,7 @@ const EbookStore = lazy(() => import("./components/EbookStore").then((m) => ({ d
 const AuthForm = lazy(() => import("./components/AuthForm").then((m) => ({ default: m.AuthForm })));
 const NewsList = lazy(() => import("./components/NewsList").then((m) => ({ default: m.NewsList })));
 const ArticleDetail = lazy(() => import("./components/ArticleDetail").then((m) => ({ default: m.ArticleDetail })));
+const SellerApply = lazy(() => import("./components/SellerApply").then((m) => ({ default: m.SellerApply })));
 
 export type View =
   | "home"
@@ -25,7 +26,8 @@ export type View =
   | "journey"
   | "ebooks"
   | "news"
-  | "article";
+  | "article"
+  | "seller";
 
 function ViewFallback() {
   const { t } = useLocale();
@@ -105,7 +107,8 @@ export default function App() {
                 highlightEbookId={highlightEbookId}
               />
             )}
-            {view === "news" && <NewsList onOpenArticle={openArticle} />}
+            {view === "news" && <NewsList onOpenArticle={openArticle} onApplySeller={() => setView("seller")} />}
+            {view === "seller" && <SellerApply onBack={() => setView("news")} />}
             {view === "article" &&
               (articleId !== null ? (
                 <ArticleDetail articleId={articleId} onBack={() => setView("news")} onOpenSite={openSite} onOpenEbook={openEbook} />

@@ -3,7 +3,13 @@ import { api } from "../lib/gencow";
 import { useLocale } from "../lib/i18n";
 import type { Article } from "../lib/types";
 
-export function NewsList({ onOpenArticle }: { onOpenArticle: (id: number) => void }) {
+export function NewsList({
+  onOpenArticle,
+  onApplySeller,
+}: {
+  onOpenArticle: (id: number) => void;
+  onApplySeller: () => void;
+}) {
   const { locale, t } = useLocale();
   const { data, isLoading } = useQuery(api.articles.list, { filters: { locale } });
   const articles = (data?.data as unknown as Article[] | undefined) ?? [];
@@ -13,6 +19,18 @@ export function NewsList({ onOpenArticle }: { onOpenArticle: (id: number) => voi
       <div className="eyebrow">{t("news.eyebrow")}</div>
       <h1 className="page-title">{t("news.title")}</h1>
       <p className="lead">{t("news.lead")}</p>
+
+      <button className="card seller-banner" onClick={onApplySeller}>
+        <div className="stack" style={{ gap: 2 }}>
+          <span className="small" style={{ fontWeight: 700 }}>
+            {t("news.sellerBannerTitle")}
+          </span>
+          <span className="small muted">{t("news.sellerBannerDesc")}</span>
+        </div>
+        <span className="small" style={{ whiteSpace: "nowrap" }}>
+          {t("news.sellerBannerCta")}
+        </span>
+      </button>
 
       {isLoading && <p className="hint">{t("common.loading")}</p>}
       {!isLoading && articles.length === 0 && <p className="hint">{t("news.empty")}</p>}
