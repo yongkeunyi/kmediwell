@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gencow-backend",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["x", "gencow", "dev", "--local"],
+      "port": 5456
+    },
+    {
+      "name": "web",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev:web"],
+      "port": 3000
+    },
+    {
+      "name": "mockup-preview",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["C:\\Users\\User\\AppData\\Local\\Temp\\claude\\C--Users-User-kmediwell\\fca33275-cf99-4462-ab6b-1db236b1c0db\\scratchpad\\static-server.js"],
+      "port": 4322
+    }
+  ]
+}
