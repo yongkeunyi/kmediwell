@@ -11,6 +11,7 @@ import { ebooksCrud, mySubscriptions as ebooksMySubscriptions, subscribe as eboo
 import { articlesCrud } from "./articles";
 import { measure as healingMeasure, history as healingHistory, recommend as healingRecommend } from "./healing";
 import { list as bookingsList, create as bookingsCreate } from "./bookings";
+import { apply as sellersApply, myApplication as sellersMyApplication } from "./sellers";
 
 export default defineApi({
   crud: {
@@ -27,5 +28,7 @@ export default defineApi({
     ebooksMySubscriptions,
     ebooksSubscribe,
     ebooksUnsubscribe,
+    sellersApply,
+    sellersMyApplication,
   },
 });

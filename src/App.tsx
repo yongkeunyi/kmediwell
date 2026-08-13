@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import { Nav } from "./components/Nav";
 import { Home } from "./components/Home";
+import { Landing } from "./components/Landing";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useLocale } from "./lib/i18n";
 import type { Site } from "./lib/types";
@@ -14,8 +15,10 @@ const EbookStore = lazy(() => import("./components/EbookStore").then((m) => ({ d
 const AuthForm = lazy(() => import("./components/AuthForm").then((m) => ({ default: m.AuthForm })));
 const NewsList = lazy(() => import("./components/NewsList").then((m) => ({ default: m.NewsList })));
 const ArticleDetail = lazy(() => import("./components/ArticleDetail").then((m) => ({ default: m.ArticleDetail })));
+const SellerApply = lazy(() => import("./components/SellerApply").then((m) => ({ default: m.SellerApply })));
 
 export type View =
+  | "landing"
   | "home"
   | "auth"
   | "measure"
@@ -25,7 +28,8 @@ export type View =
   | "journey"
   | "ebooks"
   | "news"
-  | "article";
+  | "article"
+  | "seller";
 
 function ViewFallback() {
   const { t } = useLocale();
@@ -33,7 +37,7 @@ function ViewFallback() {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>("home");
+  const [view, setView] = useState<View>("landing");
   const [siteId, setSiteId] = useState<number | null>(null);
   const [bookingSite, setBookingSite] = useState<Site | null>(null);
   const [articleId, setArticleId] = useState<number | null>(null);
@@ -56,10 +60,18 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <Nav view={view} onNavigate={setView} />
+      {view !== "landing" && <Nav view={view} onNavigate={setView} />}
       <main className="app-main">
         <ErrorBoundary>
           <Suspense fallback={<ViewFallback />}>
+            {view === "landing" && (
+              <Landing
+                onEnter={() => setView("home")}
+                onBrowseEbooks={() => setView("ebooks")}
+                onOpenNews={() => setView("news")}
+                onExploreAll={() => setView("explore")}
+              />
+            )}
             {view === "home" && (
               <Home
                 onOpenSite={openSite}
@@ -105,7 +117,8 @@ export default function App() {
                 highlightEbookId={highlightEbookId}
               />
             )}
-            {view === "news" && <NewsList onOpenArticle={openArticle} />}
+            {view === "news" && <NewsList onOpenArticle={openArticle} onApplySeller={() => setView("seller")} />}
+            {view === "seller" && <SellerApply onBack={() => setView("news")} />}
             {view === "article" &&
               (articleId !== null ? (
                 <ArticleDetail articleId={articleId} onBack={() => setView("news")} onOpenSite={openSite} onOpenEbook={openEbook} />

@@ -70,6 +70,23 @@ export const articles = pgTable("articles", {
   publishedAt: timestamp("published_at").defaultNow().notNull(),
 });
 
+// 글로벌 셀러 · 치유관광 기자단 파일럿 신청 (사용자 소유) — 국내 체류 유학생 대상
+export const sellerApplications = pgTable(
+  "seller_applications",
+  {
+    id: serial("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    country: text("country").notNull(),
+    preferredLocale: text("preferred_locale").notNull(), // "ko" | "en" | "zh" | "ja" | "vi"
+    message: text("message"),
+    status: text("status").default("pending").notNull(), // pending | approved | rejected
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (t) => [...ownerRls(t.userId), uniqueIndex("seller_applications_user_idx").on(t.userId)],
+);
+
 // 뇌파(EEG) 측정 기록 — DX 데이터 (사용자 소유)
 export const healingRecords = pgTable(
   "healing_records",
@@ -108,7 +125,19 @@ export const bookings = pgTable(
 );
 
 export const relations = defineRelations(
-  { user, session, account, verification, sites, ebooks, ebookSubscriptions, articles, healingRecords, bookings },
+  {
+    user,
+    session,
+    account,
+    verification,
+    sites,
+    ebooks,
+    ebookSubscriptions,
+    articles,
+    healingRecords,
+    bookings,
+    sellerApplications,
+  },
   (r) => ({
     ...authRelationsConfig(r),
   }),

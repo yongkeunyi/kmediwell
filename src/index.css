@@ -296,6 +296,137 @@ hr.rule {
   margin: 0.3em 0 0.7em;
 }
 
+/* ---- landing ---- */
+.landing-topbar {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.landing-hero-title {
+  font-size: 1.9rem;
+  text-wrap: balance;
+}
+.landing-cta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 4px;
+}
+.stage-track {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.stage-card {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.stage-card.active {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 10%, var(--surface));
+}
+.stage-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--text-3);
+}
+.stage-card.active .stage-num {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.stage-label {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+.stage-arrow {
+  align-self: center;
+  color: var(--text-3);
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  text-align: left;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--gold);
+}
+.pillar-card:hover {
+  border-color: var(--border-strong);
+}
+.pillar-title {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  color: var(--text-1);
+}
+.pillar-cta {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+.ax-card {
+  margin-top: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 12px 0 20px;
+}
+.stat-tile {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-value {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.final-cta {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--ink), var(--forest));
+  color: var(--bg);
+  margin: 24px 0 40px;
+}
+
 /* ---- chips ---- */
 .chipbar {
   display: flex;
@@ -339,6 +470,19 @@ hr.rule {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+}
+.seller-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  margin-top: 14px;
+}
+.seller-banner:hover {
+  border-color: var(--border-strong);
 }
 .stack {
   display: flex;
