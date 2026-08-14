@@ -14,6 +14,12 @@
       "port": 3000
     },
     {
+      "name": "dist-preview",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["x", "vite", "preview", "--port", "3000"],
+      "port": 3000
+    },
+    {
       "name": "mockup-preview",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["C:\\Users\\User\\AppData\\Local\\Temp\\claude\\C--Users-User-kmediwell\\fca33275-cf99-4462-ab6b-1db236b1c0db\\scratchpad\\static-server.js"],

@@ -15,7 +15,15 @@ export default {
     db: { url: "./.gencow/data" },
     port: 5456,
     // Public frontend origins for API CORS and auth flows.
-    frontendOrigins: ["http://localhost:3000"],
+    // Origins are scheme+host only — no path (a trailing "/kmediwell/" would never match).
+    frontendOrigins: [
+        "http://localhost:3000",
+        "https://late-drum-6529-prod.gencow.app",
+        "https://yongkeunyi.github.io",
+    ],
     // Legacy escape hatch for advanced local integrations:
     // trustedOrigins: ["http://localhost:*"],
+    deploy: {
+        app: "late-drum-6529",
+    },
 };
